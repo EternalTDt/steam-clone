@@ -1,0 +1,22 @@
+version: "3"
+   
+services:
+  db:
+    image: postgres
+    ports:
+    - "5432:5432"
+    environment:
+      - POSTGRES_USER=tim_steam
+      - POSTGRES_PASSWORD=2554963demidovT!
+      - POSTGRES_DB=steam
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/steam
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db

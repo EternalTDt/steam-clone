@@ -1,0 +1,57 @@
+{% extends 'mainpage/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Steam
+{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{% static 'mainpage/css/slider.css' %}">
+{% endblock head %}
+
+{% block main %}
+<div class="swiper-container mySwiper">
+    <div class="swiper-wrapper">
+        {% for product in products %}
+        <div class="swiper-slide">
+            <div class="card star-wars">
+                <div class="card-text">
+                    <span class="card-subtitle">Pre-Purchase</span>
+                    <span class="card-title">{{ product.name }}</span>
+                    <span class="card-description">
+                        {{ product.description|safe }}
+                    </span>
+                    <span class="card-price">
+                        {{ product.price }}
+                        <img src="/media/windows.svg" alt="icon: windows">
+                    </span>
+                    <button class="buy">
+                        <div class="circle"></div>
+                        Buy now
+                    </button>
+                </div>
+                <img src="{{ product.title_image.url }}" alt="img: illustration" id="main-img">
+                <div class="card-images">
+                    <img src="/media/cyberpuk.png" alt="icon: logo" id="game-logo">
+                    <div class="preview-images">
+                        <img src="/media/cyberpunk1.png" alt="image: game-illustration">
+                        <img src="/media/cyberpunk2.png" alt="image: game-illustration">
+                        <img src="/media/cyberpunk3.png" alt="image: game-illustration">
+                        <img src="/media/cyberpunk4.png" alt="image: game-illustration">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+{% endblock main %}
+
+{% block scripts %}
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="{% static 'mainpage/js/script.js' %}"></script>
+{% endblock scripts %}

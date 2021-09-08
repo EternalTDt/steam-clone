@@ -1,0 +1,7 @@
+*.cpython
+*.log
+*.pot
+*.pyc
+__pycache__
+settings.py
+data

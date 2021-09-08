@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock title %}</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'mainpage/css/style.css' %}">
+    <link rel="icon" href="{% static 'mainpage/img/steam.ico' %}" type="image/x-icon">
+    {% block head %}
+    {% endblock head %}
+</head>
+<body>
+    {% include 'mainpage/header.html' %}
+
+    {% block main %}
+    
+    {% endblock main %}
+
+    {% block scripts %}
+
+    {% endblock scripts %}
+</body>
+</html>

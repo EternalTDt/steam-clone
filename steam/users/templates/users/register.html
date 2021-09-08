@@ -1,0 +1,28 @@
+{% extends 'mainpage/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Sign In
+{% endblock title %}
+ 
+{% block head %}
+{% endblock head %}
+
+{% block main %}
+    <section class="section">
+        <h2>Sign In</h2>
+        <form method="POST" class="reg-form">
+            {% csrf_token %}
+            <span>Username</span>
+            {{ form.username }}
+            <span>Your email</span>
+            {{ form.email }}
+            <span>Your password</span>
+            {{ form.password1 }}
+            <span>Repeat password</span>
+            {{ form.password2 }}
+            <button type="submit" class="button-reg">Let's go!</button>
+        </form>
+    </section>
+{% endblock main %}

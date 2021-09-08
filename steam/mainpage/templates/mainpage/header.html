@@ -1,0 +1,60 @@
+<header class="header">
+    <nav class="subheader-body">
+        <ul class="subheader-menu">
+            <li class="subheader-menu-item">
+                <a href="/"><img src="/media/logo.svg" alt="svg: logo"></a>
+            </li>
+        </ul>
+        <ul class="subheader-menu">
+            <li class="subheader-menu-item">
+                <button class="button-install">
+                    <img src="/media/download.svg" alt="icon: download">
+                    Install Steam
+                </button>
+            </li>
+            <li class="subheader-menu-item">
+                <a href="{% url 'login' %}">Login</a>
+            </li>
+            <li class="subheader-menu-item">
+                <a href="{% url 'reg' %}">Sign In</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="line"></div>
+    <nav class="header-body">
+        <ul class="header-menu">
+            <li class="header-menu-item">
+                <a href="">Games</a>
+            </li>
+            <li class="header-menu-item">
+                <a href="">Software</a>
+            </li>
+            <li class="header-menu-item">
+                <a href="">Hardware</a>
+            </li>
+            <div class="line-vertical"></div>
+            <li class="header-menu-item">
+                <button class="button-search">
+                    <img src="/media/search.svg" alt="icon: search">
+                    Search
+                </button>
+            </li>
+        </ul>
+        <ul class="header-menu">
+            <li class="header-menu-item">
+                <img src="/media/valve-index.png" alt="img: valve index">
+            </li>
+            <li class="header-menu-item">
+                <a href="">Cart</a><span>0</span>
+            </li>
+        </ul>
+    </nav>
+    <div class="line"></div>
+    {% if messages %}
+    <div class="messages">
+          {% for message in messages %}
+          <span class="alert-success">{{ message }}</span>>
+          {% endfor %}
+    </div>
+    {% endif %}
+</header>
