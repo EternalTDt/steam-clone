@@ -23,7 +23,7 @@
 * Работа с админкой джанго, графики помесячных продаж
 
 
-Как запустить проект у себя?
+## Как запустить проект у себя?
 
 1. git clone https://github.com/EternalTDt/steam-clone
 2. pip install requirements.txt
