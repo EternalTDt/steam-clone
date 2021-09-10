@@ -4,6 +4,25 @@ from ckeditor.fields import RichTextField
 from django_countries.fields import CountryField
 
 
+class Category(models.Model):
+    name = models.CharField(
+        max_length=200,
+        db_index=True
+    )
+    slug = models.SlugField(
+        max_length=200,
+        unique=True
+    )
+    
+    class Meta:
+        ordering = ('name',)
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
+    
+    def __str__(self):
+        return self.name
+
+
 class Company(models.Model):
     name = models.CharField("Название", max_length=100)
     slug = models.SlugField("Ссылка", max_length=130, unique=True, blank=True, null=True)
@@ -23,6 +42,7 @@ class Company(models.Model):
 
 class Product(models.Model):
     name = models.CharField("Название", max_length=150, blank=True)
+    category = models.ForeignKey(Category, related_name="products", on_delete=models.CASCADE, null=True, blank=True)
     slug = models.SlugField("Ссылка", max_length=130, unique=True, blank=True, null=True)
     description = RichTextField()
     release_date = models.DateField("Дата выхода", auto_now_add=True)
@@ -34,5 +54,7 @@ class Product(models.Model):
         return self.name
 
     class Meta:
+        ordering = ('name',)
+        index_together = (('id', 'slug'),)
         verbose_name = "Товар"
         verbose_name_plural = "Товары"
